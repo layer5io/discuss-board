@@ -1,0 +1,122 @@
+* {
+    font-family: "Open Sans", sans-serif;
+    
+   
+}
+
+/* TABLE STYLES */
+.board-table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    color: grey;
+    font-size: 1em;
+    
+    
+    min-width: 600px;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.board-table thead tr {
+    background-color: #04b49c;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    
+}
+
+.board-table th,
+.board-table td {
+    padding: 1em;
+}
+
+/* line under each row */
+/* .board-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+} */
+
+
+/* Every even row with different background */
+.board-table tbody tr:nth-of-type(even) {
+    background-color:#e6fbf7;
+}
+
+/* last row with green bottom border */
+.board-table tbody tr:last-of-type {
+    border-bottom: .3em solid #04b49c;
+}
+
+/* For the medals */
+
+.rank-container{
+    display: flex;
+    text-align: center;
+    
+}
+.rank-container p {
+    text-align: center;
+    margin-left: 1.2em;
+}
+
+.rank-container img{
+    width: 2.5em;
+    height: 2.5em;
+    margin-top: .4em;
+    margin-left: 0em;
+}
+.board-table tbody tr:first-of-type .rank-container .medal img{
+    content: url("/images/medal1a.png");   
+    
+}
+
+.board-table tbody tr:nth-child(2) .rank-container .medal img {
+    content: url("/images/medal2a.png");
+   
+}
+
+.board-table tbody tr:nth-child(3) .rank-container .medal img {
+    content: url("/images/medal3a.png");
+   
+}
+
+/* for every other rank element after the first 3 */
+/* hides the image element since they don't have medal */
+.board-table tbody tr:nth-child(n+4) .rank-container .medal img {
+    display: none;
+    
+}
+
+
+.board-table td {
+    text-align: center;
+    padding: .5rem;
+}
+
+/* RANK STYLES */
+.rank p{
+    color: #6f6f6f;
+    font-weight: bold;
+
+}
+
+
+/* USERNAME STYLES */
+.username-container{
+    display: flex;
+    /* justify-content: space-between; */
+    
+}
+
+/* avatar */
+.username-container img{
+    border-radius: 50%;
+    
+}
+
+.username-container p{
+    padding-left: 1em;
+}
+
