@@ -1,0 +1,18 @@
+{
+  "name": "discuss-board",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node data.js"
+  },
+  "author": "oyin",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "node-fetch": "^3.2.4",
+    "nodemon": "^2.0.16"
+  },
+  "main": "index.js",
+  "description": ""
+}

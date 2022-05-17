@@ -2,20 +2,21 @@
     font-family: "Open Sans", sans-serif;
     margin: 0;
     padding: 0;
-    
-    
-   
+
+
+
 }
 
-.table-container{
+.table-container {
     /* limit the height of the table container */
     max-height: 30em;
     overflow-y: scroll;
     overflow-x: scroll;
     max-width: fit-content;
     margin-left: auto;
-    margin-right: auto;    
+    margin-right: auto;
     margin-top: 5em;
+
 
 }
 
@@ -28,11 +29,11 @@
     font-size: 1em;
     /* overflow-y: scroll;
     overflow-x: scroll; */
-    
+
     margin-bottom: 6em;
     min-width: max-content;
-    
-    
+
+
     min-width: 600px;
     border-radius: 5px 5px 5px 5px;
     /* overflow: hidden; */
@@ -42,13 +43,13 @@
 .board-table thead tr {
     position: sticky;
     top: 0em;
-    
+
     background-color: #04b49c;
     color: #ffffff;
     text-align: center;
     font-weight: bold;
     font-size: 1.1em;
-    
+
 }
 
 .board-table th,
@@ -64,7 +65,7 @@
 
 /* Every even row with different background */
 .board-table tbody tr:nth-of-type(even) {
-    background-color:#e6fbf7;
+    background-color: #e6fbf7;
 }
 
 /* last row with green bottom border */
@@ -74,17 +75,18 @@
 
 /* For the medals */
 
-.rank-container{
+.rank-container {
     display: flex;
     text-align: center;
-    
+
 }
+
 .rank-container p {
     text-align: center;
     margin-left: 1.2em;
 }
 
-.rank-container img{
+.rank-container img {
     width: 2.5em;
     height: 2.5em;
     margin-top: .4em;
@@ -92,25 +94,26 @@
 }
 
 .table-container tbody tr {
-height: 3.5em;
+    height: 3.5em;
 
 }
-.board-table tbody tr:first-of-type .rank-container .medal img{
-    content: url("/images/medal1a.png");
+
+.board-table tbody tr:first-of-type .rank-container .medal img {
+    content: url("./images/medal1a.png");
     margin-left: .75em;
-    
+
 }
 
 .board-table tbody tr:nth-child(2) .rank-container .medal img {
-    content: url("/images/medal2a.png");
+    content: url("./images/medal2a.png");
     margin-left: .75em;
-   
+
 }
 
 .board-table tbody tr:nth-child(3) .rank-container .medal img {
     margin-left: .75em;
-    content: url("/images/medal3a.png");
-   
+    content: url("./images/medal3a.png");
+
 }
 
 /* Removes the numbers next to top three medals */
@@ -118,14 +121,15 @@ height: 3.5em;
     display: none;
 
 }
+
 .board-table tbody tr:nth-child(2) .rank-container .rank-number p {
     display: none;
 
 }
 
-.board-table tbody tr:nth-child(3) .rank-container .rank-number p{
+.board-table tbody tr:nth-child(3) .rank-container .rank-number p {
     display: none;
-    
+
 }
 
 
@@ -133,7 +137,7 @@ height: 3.5em;
 /* hides the image element since they don't have medal */
 .board-table tbody tr:nth-child(n+4) .rank-container .medal img {
     display: none;
-    
+
 }
 
 
@@ -143,7 +147,7 @@ height: 3.5em;
 }
 
 /* RANK STYLES */
-.rank p{
+.rank p {
     color: #6f6f6f;
     font-weight: bold;
 
@@ -152,31 +156,61 @@ height: 3.5em;
 
 
 /* USERNAME STYLES */
-.username-container{
+.username-container {
     display: flex;
     /* justify-content: space-between; */
-    
+
 }
 
+.username-container .username a {
+    text-decoration: none;
+    color: #6f6f6f;
+
+}
 
 /* avatar */
-.username-container img{
-    
+.username-container img {
+
     border-radius: 50%;
-    
+
 }
+
 /* username */
-.username-container p{
+.username-container p {
     margin-top: .9em;
     padding-left: 1em;
 }
 
-@media (max-width: 750px){
-
-.board-table{
-    font-size: .8em;
+/* Show more button styles */
+.button {
+    margin-bottom: 3em;
+    width: 100%;
+    text-align: center;
+    align-items: center;
 
 }
+
+.button a {
+    text-decoration: none;
+    background-color: #04b49c;
+    color: white;
+    /* padding: 15px 25px; */
+    padding: .8em 1.8em;
+    border-radius: 2em;
+
+
+}
+
+.button a:hover {
+    background-color: #00d3a8
+}
+
+@media (max-width: 750px) {
+
+    .board-table {
+        font-size: .8em;
+
+    }
 
     /* .board-table thead{
         display: none;
