@@ -16,7 +16,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 5em;
-
+   
 
 }
 
@@ -161,8 +161,7 @@
     /* justify-content: space-between; */
 
 }
-
-.username-container .username a {
+.username-container .username a{
     text-decoration: none;
     color: #6f6f6f;
 
@@ -180,7 +179,6 @@
     margin-top: .9em;
     padding-left: 1em;
 }
-
 /* Show more button styles */
 .button {
     margin-bottom: 3em;
@@ -197,6 +195,7 @@
     /* padding: 15px 25px; */
     padding: .8em 1.8em;
     border-radius: 2em;
+    margin-bottom: 0em;
 
 
 }
@@ -204,7 +203,6 @@
 .button a:hover {
     background-color: #00d3a8
 }
-
 @media (max-width: 750px) {
 
     .board-table {

@@ -60,12 +60,73 @@ async function sortPoints() {
   metrics.sort((a, b) => {
     return b.totalPoints - a.totalPoints;
   });
-  winners.push(metrics.slice(0, 5));
+//   winners.push(metrics.slice(0, 5));
 
-  console.log(winners);
+//   console.log(winners);
 }
 
-// Rendering the top 5
+const renderAllUsers = async () => {
+  await sortPoints();
+  let html = "";
+  metrics.forEach((metric,index) => {
+    let htmlSegment = `
+                      <tr class="table-row">
+                     <!-- Rank -->
+                      <td class="rank">
+                          <div class="rank-container">
+      
+                              <!-- medal -->
+                              <div class="medal">
+                                <img src="" alt="gold medal">
+
+                              </div>
+                              
+                              <!-- number -->
+                              <div class="rank-number">
+                                  <p>${index + 1}</p>
+                              </div>
+                          </div>
+                      </td>
+                      <!-- Username -->
+                      <td>
+                          <div class="username-container">
+                      
+                            <a href=${metric.profileUrl}>
+                            <div class="image-container">
+                            <img src=${metric.imgSrc} alt="user image">
+                            </div>
+                            </a>
+                            
+                                <div class="username">
+                                <a href=${metric.profileUrl}>
+                                    <p>${metric.user}</p>
+                                    </a>
+                                </div>
+                          </div>
+      
+                      </td>
+      
+                      <!-- Likes received -->
+                      <td>${metric.likes}</td>
+      
+                      <!-- Posts -->
+                      <td>${metric.comments}</td>
+      
+                      <!-- Topics Created -->
+                      <td>${metric.solutions}</td>
+      
+                      <!-- Total Points -->
+                      <td>${metric.totalPoints}</td>
+                  </tr>
+                      `;
+
+    html += htmlSegment;
+  });
+
+  let container = document.querySelector(".table-body");
+  container.innerHTML = html;
+};
+
 const renderWinners = async () => {
   await sortPoints();
   let html = "";
@@ -130,6 +191,5 @@ const renderWinners = async () => {
   container.innerHTML = html;
 }
 
-
-renderWinners();
+renderAllUsers();
 
