@@ -9,13 +9,14 @@ let solutionPoint = 3;
 
 let baseURL = "https://discuss.layer5.io/";
 
+
 async function getSolutions() {
-  await fetch("./answers.json")
+  await fetch("./data2.json")
     .then((response) => response.json())
     .then((data) => (solution = data));
 
   solutions.push(solution);
-  console.log(solutions);
+  // console.log(solutions);
 }
 
 async function getData() {
@@ -24,7 +25,7 @@ async function getData() {
       .then((response) => response.json())
       .then((data) => (userData = data));
 
-    console.log(userData);
+    // console.log(userData);
 
     for (let i = 0; i < userData.length; i++) {
       let user = userData[i].user.username;
@@ -48,7 +49,7 @@ async function getData() {
       metrics.push(userObject);
     }
 
-    console.log(metrics);
+    // console.log(metrics);
   } catch (error) {
     console.log(error);
   }
@@ -62,14 +63,13 @@ async function sortPoints() {
   });
   winners.push(metrics.slice(0, 5));
 
-  console.log(winners);
+  // console.log(winners);
 }
 
-// Rendering the top 5
-const renderWinners = async () => {
+const renderAllUsers = async() => {
   await sortPoints();
   let html = "";
- winners[0].forEach((winner,index) => {
+  metrics.forEach((metric, index) => {
     let htmlSegment = `
                       <tr class="table-row">
                      <!-- Rank -->
@@ -78,8 +78,7 @@ const renderWinners = async () => {
       
                               <!-- medal -->
                               <div class="medal">
-                                <img src="" alt="gold medal">
-
+                              <img src='' alt="gold medal"> 
                               </div>
                               
                               <!-- number -->
@@ -92,10 +91,72 @@ const renderWinners = async () => {
                       <td>
                           <div class="username-container">
                       
+                            <a href=${metric.profileUrl}>
+                            <div class="image-container">
+                            <img src=${metric.imgSrc} alt="user image">
+                            </div>
+                            </a>
+                            
+                                <div class="username">
+                                <a href=${metric.profileUrl}>
+                                    <p>${metric.user}</p>
+                                    </a>
+                                </div>
+                          </div>
+      
+                      </td>
+      
+                      <!-- Likes received -->
+                      <td>${metric.likes}</td>
+      
+                      <!-- Posts -->
+                      <td>${metric.comments}</td>
+      
+                      <!-- Topics Created -->
+                      <td>${metric.solutions}</td>
+      
+                      <!-- Total Points -->
+                      <td>${metric.totalPoints}</td>
+                  </tr>
+                      `;
+
+    html += htmlSegment;
+  });
+
+  let container = document.querySelector(".AllUsers");
+  container.innerHTML = html;
+};
+renderAllUsers();
+
+const renderWinners = async() => {
+  await sortPoints();
+  let html = "";
+  winners[0].forEach((winner, index) => {
+    let htmlSegment = `
+                      <tr class="table-row">
+                     <!-- Rank -->
+                     <td class="rank">
+                     <div class="rank-container">
+ 
+                         <!-- medal -->
+                         <div class="medal">
+                         <img src='' alt="gold medal"> 
+                         </div>
+                         
+                         <!-- number -->
+                         <div class="rank-number">
+                             <p>${index + 1}</p>
+                         </div>
+                     </div>
+                 </td>
+                      <!-- Username -->
+                      <td>
+                          <div class="username-container">
+                      
                             <a href=${winner.profileUrl}>
-                              <div class="image-container">
-                              <img src=${winner.imgSrc} alt="user image">
-                              </div>
+                            <div class="image-container">
+                            <img src=${winner.imgSrc} alt="user image">
+                            </div>
                             </a>
                             
                                 <div class="username">
@@ -119,17 +180,13 @@ const renderWinners = async () => {
                       <!-- Total Points -->
                       <td>${winner.totalPoints}</td>
                   </tr>
-
-                  
                       `;
 
     html += htmlSegment;
   });
 
-  let container = document.querySelector(".table-body");
+  let container = document.querySelector(".winners");
   container.innerHTML = html;
-}
-
+};
 
 renderWinners();
-

@@ -2,48 +2,46 @@
     font-family: "Open Sans", sans-serif;
     margin: 0;
     padding: 0;
-
-
-
 }
 
 .table-container {
     /* limit the height of the table container */
-    max-height: 30em;
-    overflow-y: scroll;
-    overflow-x: scroll;
+    max-height: 40em;
+    overflow-x: auto;
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5em;
-   
+}
 
+.table-container_allusers {
+    /* limit the height of the table container */
+    /* max-height: 30em; */
+
+    overflow-x: auto;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5em;
 }
 
 /* TABLE STYLES */
 .board-table {
+    /* overflow-x: auto; */
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
     color: grey;
     font-size: 1em;
-    /* overflow-y: scroll;
-    overflow-x: scroll; */
-
-    margin-bottom: 6em;
+    margin-bottom: 3em;
     min-width: max-content;
-
-
-    min-width: 600px;
     border-radius: 5px 5px 5px 5px;
-    /* overflow: hidden; */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .board-table thead tr {
     position: sticky;
     top: 0em;
-
     background-color: #04b49c;
     color: #ffffff;
     text-align: center;
@@ -56,12 +54,6 @@
 .board-table td {
     padding: 1em;
 }
-
-/* line under each row */
-/* .board-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-} */
-
 
 /* Every even row with different background */
 .board-table tbody tr:nth-of-type(even) {
@@ -98,21 +90,26 @@
 
 }
 
+.table-container_allusers tbody tr {
+    height: 3.5em;
+
+}
+
 .board-table tbody tr:first-of-type .rank-container .medal img {
-    content: url("./images/medal1a.png");
+    content: url("./medals/medal1a.png");
     margin-left: .75em;
 
 }
 
 .board-table tbody tr:nth-child(2) .rank-container .medal img {
-    content: url("./images/medal2a.png");
+    content: url("./medals/medal2a.png");
     margin-left: .75em;
 
 }
 
 .board-table tbody tr:nth-child(3) .rank-container .medal img {
     margin-left: .75em;
-    content: url("./images/medal3a.png");
+    content: url("./medals/medal3a.png");
 
 }
 
@@ -134,7 +131,7 @@
 
 
 /* for every other rank element after the first 3 */
-/* hides the image element since they don't have medal */
+/* hides the image element since they don't have a medal */
 .board-table tbody tr:nth-child(n+4) .rank-container .medal img {
     display: none;
 
@@ -158,10 +155,11 @@
 /* USERNAME STYLES */
 .username-container {
     display: flex;
-    /* justify-content: space-between; */
+
 
 }
-.username-container .username a{
+
+.username-container .username a {
     text-decoration: none;
     color: #6f6f6f;
 
@@ -179,6 +177,7 @@
     margin-top: .9em;
     padding-left: 1em;
 }
+
 /* Show more button styles */
 .button {
     margin-bottom: 3em;
@@ -195,7 +194,6 @@
     /* padding: 15px 25px; */
     padding: .8em 1.8em;
     border-radius: 2em;
-    margin-bottom: 0em;
 
 
 }
@@ -203,36 +201,12 @@
 .button a:hover {
     background-color: #00d3a8
 }
+
 @media (max-width: 750px) {
 
     .board-table {
         font-size: .8em;
 
     }
-
-    /* .board-table thead{
-        display: none;
-    }
-
-    .board-table, .board-table tbody, .board-table tr, .board-table td{
-        display: block;
-        width: 100%;
-    }
-
-    .board-table tr{
-        margin-bottom: 1.2em;
-    }
-
-    .board-table tbody tr td {
-        text-align: right;  
-        padding-left: 50%;
-        position: relative;
-    }
-    .board-table tbody tr td::before{
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-    } */
-
 
 }
