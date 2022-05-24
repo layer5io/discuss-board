@@ -87,6 +87,7 @@
 
 .table-container tbody tr {
     height: 3.5em;
+    /* width: 100px; */
 
 }
 
@@ -202,10 +203,80 @@
     background-color: #00d3a8
 }
 
-@media (max-width: 750px) {
+
+/* For tablets */
+@media (max-width: 850px) {
 
     .board-table {
         font-size: .8em;
+
+    }
+
+}
+
+@media (max-width: 690px) {
+
+    .board-table {
+        font-size: .8em;
+
+    }
+    .table-container {
+        /* limit the height of the table container */
+        max-height: 40em;        
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5em;
+    }
+    /* removes the avatar of the users */
+    .image-container{
+        display: none;
+    }
+    .board-table thead tr th{
+        width:100px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    
+    
+}
+/* For mobile phones */
+@media (max-width: 450px) {
+
+    .board-table {
+        font-size: .8em;
+
+    }
+    
+    /* hides the columns */
+   
+    td:nth-child(3),
+    td:nth-child(4),td:nth-child(5) {
+        display: none
+    }
+    
+    /* hides the table headers */
+    .likes{
+        display: none;
+        
+    }
+    
+    
+    .solutions{
+        display: none;
+
+    }
+    .item-solutions{
+        display: none;
+
+    }
+    .posts{
+        display: none;
+
+    }
+    .item-posts{
+        display: none;
 
     }
 
