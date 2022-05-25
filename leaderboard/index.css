@@ -15,8 +15,7 @@
 }
 
 .table-container_allusers {
-    /* limit the height of the table container */
-    /* max-height: 30em; */
+ 
 
     overflow-x: auto;
     max-width: fit-content;
