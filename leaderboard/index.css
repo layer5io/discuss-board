@@ -1,9 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 * {
     font-family: "Open Sans", sans-serif;
     margin: 0;
     padding: 0;
 }
+.seach-div {
+    text-align: right;
+}
 
+.seach-div input {
+    padding: 0.5rem;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.seach-div input:focus {
+    outline-width: 2px;
+    outline-color: #00b39f;
+}
+
+.notFound {
+    padding: 1rem;
+}
+
+.notFound p {
+    font-size: 1.1em;
+}
 .table-container {
     /* limit the height of the table container */
     max-height: 40em;
@@ -30,7 +52,7 @@
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
-    color: grey;
+    color: #666666;
     font-size: 1em;
     margin-bottom: 3em;
     min-width: max-content;
@@ -41,11 +63,11 @@
 .board-table thead tr {
     position: sticky;
     top: 0em;
-    background-color: #04b49c;
+    background-color: #00b39f;
     color: #ffffff;
     text-align: center;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.125em;
 
 }
 
@@ -56,12 +78,13 @@
 
 /* Every even row with different background */
 .board-table tbody tr:nth-of-type(even) {
+    /* background-color: #e6fbf7; */
     background-color: #e6fbf7;
 }
 
 /* last row with green bottom border */
 .board-table tbody tr:last-of-type {
-    border-bottom: .3em solid #04b49c;
+    border-bottom: .3em solid #00b39f;
 }
 
 /* For the medals */
@@ -145,7 +168,7 @@
 
 /* RANK STYLES */
 .rank p {
-    color: #6f6f6f;
+    color: #444444;
     font-weight: bold;
 
 }
@@ -161,7 +184,7 @@
 
 .username-container .username a {
     text-decoration: none;
-    color: #6f6f6f;
+    color: #666666;
 
 }
 
@@ -189,17 +212,17 @@
 
 .button a {
     text-decoration: none;
-    background-color: #04b49c;
+    background-color: #00b39f;
     color: white;
     /* padding: 15px 25px; */
     padding: .8em 1.8em;
-    border-radius: 2em;
+    border-radius: .25em;
 
 
 }
 
 .button a:hover {
-    background-color: #00d3a8
+    background-color: #00d3a9
 }
 
 
@@ -207,16 +230,16 @@
 @media (max-width: 850px) {
 
     .board-table {
-        font-size: .8em;
+        font-size: 1em;
 
     }
 
 }
 
-@media (max-width: 690px) {
+@media (max-width: 830px) {
 
     .board-table {
-        font-size: .8em;
+        font-size: 1em;
 
     }
     .table-container {
@@ -241,10 +264,10 @@
     
 }
 /* For mobile phones */
-@media (max-width: 450px) {
+@media (max-width: 630px) {
 
     .board-table {
-        font-size: .8em;
+        font-size: .9375em;
 
     }
     
