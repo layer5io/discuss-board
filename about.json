@@ -1,0 +1,8 @@
+{
+    "about_url": "https://github.com/layer5io/discuss-board/blob/master/README.md",
+    "license_url": "https://github.com/layer5io/discuss-board/blob/master/LICENSE",
+    "assets": {
+    },
+    "name": "Leaderboard",
+    "component": true
+  }
