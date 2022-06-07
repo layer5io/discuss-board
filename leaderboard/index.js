@@ -10,17 +10,11 @@ let likePoint = 2;
 let solutionPoint = 3;
 
 let baseURL = "https://discuss.layer5.io/";
-let config = {
-  headers: {
-    "Api-Key":
-      "0deda792d73d76ec3d59b2e7d7adbfeadff0e78d3ba625afb1f828921de51c6e",
-    "Api-Username": "Lee",
-  },
-};
+
 
 //get data from json file
 const getData = async () => {
-  await fetch("./data.json", config)
+  await fetch("./data.json")
     .then((res) => {
       return res.json();
     })
