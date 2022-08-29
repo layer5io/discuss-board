@@ -1,0 +1,175 @@
+[
+  {
+    "id": 3,
+    "likes_received": 97,
+    "likes_given": 81,
+    "topic_count": 3,
+    "post_count": 94,
+    "topics_entered": 166,
+    "posts_read": 348,
+    "days_visited": 224,
+    "solutions": 12,
+    "time_read": 22157,
+    "user": {
+      "id": 3,
+      "username": "Lee",
+      "name": "Lee Calcote",
+      "avatar_template": "/user_avatar/discuss.layer5.io/lee/{size}/7_2.png",
+      "title": "",
+      "flair_name": null,
+      "admin": true,
+      "moderator": true,
+      "trust_level": 2
+    }
+  },
+  {
+    "id": 11,
+    "likes_received": 52,
+    "likes_given": 41,
+    "topic_count": 18,
+    "post_count": 4,
+    "topics_entered": 52,
+    "posts_read": 89,
+    "days_visited": 65,
+    "solutions": 0,
+    "time_read": 7429,
+    "user": {
+      "id": 11,
+      "username": "Anita-ihuman",
+      "name": "Anita-ihuman",
+      "avatar_template": "/user_avatar/discuss.layer5.io/anita-ihuman/{size}/28_2.png",
+      "title": null,
+      "flair_name": null,
+      "moderator": true,
+      "trust_level": 2
+    }
+  },
+  {
+    "id": 47,
+    "likes_received": 29,
+    "likes_given": 7,
+    "topic_count": 8,
+    "post_count": 7,
+    "topics_entered": 27,
+    "posts_read": 39,
+    "days_visited": 28,
+    "solutions": 0,
+    "time_read": 3233,
+    "user": {
+      "id": 47,
+      "username": "Iambami",
+      "name": "Oluwabamike Atinuke Kayode",
+      "avatar_template": "/user_avatar/discuss.layer5.io/iambami/{size}/178_2.png",
+      "title": null,
+      "flair_name": null,
+      "moderator": true,
+      "trust_level": 1
+    }
+  },
+  {
+    "id": 7,
+    "likes_received": 20,
+    "likes_given": 11,
+    "topic_count": 1,
+    "post_count": 9,
+    "topics_entered": 18,
+    "posts_read": 44,
+    "days_visited": 15,
+    "solutions": 1,
+    "time_read": 2668,
+    "user": {
+      "id": 7,
+      "username": "AdiKris",
+      "name": "Adithya Krishna",
+      "avatar_template": "/user_avatar/discuss.layer5.io/adikris/{size}/23_2.png",
+      "title": null,
+      "flair_name": null,
+      "trust_level": 1
+    }
+  },
+  {
+    "id": 142,
+    "likes_received": 16,
+    "likes_given": 14,
+    "topic_count": 10,
+    "post_count": 10,
+    "topics_entered": 43,
+    "posts_read": 69,
+    "days_visited": 50,
+    "solutions": 2,
+    "time_read": 5227,
+    "user": {
+      "id": 142,
+      "username": "kunalverma",
+      "name": "Kunal Verma",
+      "avatar_template": "/user_avatar/discuss.layer5.io/kunalverma/{size}/267_2.png",
+      "title": "",
+      "flair_name": null,
+      "moderator": true,
+      "trust_level": 2
+    }
+  },
+  {
+    "id": 2,
+    "likes_received": 14,
+    "likes_given": 7,
+    "topic_count": 1,
+    "post_count": 0,
+    "topics_entered": 65,
+    "posts_read": 104,
+    "days_visited": 63,
+    "solutions": 0,
+    "time_read": 2487,
+    "user": {
+      "id": 2,
+      "username": "Jash",
+      "name": "Jash Patel",
+      "avatar_template": "/user_avatar/discuss.layer5.io/jash/{size}/34_2.png",
+      "title": null,
+      "flair_name": null,
+      "trust_level": 1
+    }
+  },
+  {
+    "id": 29,
+    "likes_received": 13,
+    "likes_given": 10,
+    "topic_count": 3,
+    "post_count": 28,
+    "topics_entered": 68,
+    "posts_read": 206,
+    "days_visited": 47,
+    "solutions": 0,
+    "time_read": 14027,
+    "user": {
+      "id": 29,
+      "username": "sayantan1413",
+      "name": "Sayantan Bose",
+      "avatar_template": "/user_avatar/discuss.layer5.io/sayantan1413/{size}/59_2.png",
+      "title": null,
+      "flair_name": null,
+      "trust_level": 2
+    }
+  },
+  {
+    "id": 17,
+    "likes_received": 12,
+    "likes_given": 5,
+    "topic_count": 1,
+    "post_count": 15,
+    "topics_entered": 45,
+    "posts_read": 121,
+    "days_visited": 58,
+    "solutions": 3,
+    "time_read": 6294,
+    "user": {
+      "id": 17,
+      "username": "navendu",
+      "name": "Navendu Pottekkat",
+      "avatar_template": "/user_avatar/discuss.layer5.io/navendu/{size}/247_2.png",
+      "title": null,
+      "flair_name": null,
+      "trust_level": 2
+    }
+  }
+]

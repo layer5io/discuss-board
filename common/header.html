@@ -1,0 +1,392 @@
+<!-- originally winners.html-->
+
+<div class="table-container">
+  <table class="board-table">
+    <!-- HEAD  -->
+    <thead>
+      <tr class="table-row">
+        <th>Rank</th>
+        <th>Member</th>
+        <th class="likes">Likes Received</th>
+        <th class="posts">Posts</th>
+        <th class="solutions">Solutions Accepted</th>
+        <th>Total Points</th>
+      </tr>
+    </thead>
+    <!-- BODY -->
+    <tbody class="winners"></tbody>
+  </table>
+
+  <div class="button">
+    <a href="./leaderboard/AllUsers.html">Show More</a>
+  </div>
+</div>
+
+<div class="table-container_allusers">
+  <div class="seach-div">
+    <input
+      id="search"
+      type="text"
+      name="search"
+      placeholder="filter by username"
+    />
+  </div>
+  <table class="board-table" id="allUsersTable">
+    <!-- HEAD  -->
+    <thead>
+      <tr class="table-row">
+        <th>Rank</th>
+        <th>Member</th>
+        <th class="likes">Likes Received</th>
+        <th class="posts">Posts</th>
+        <th class="solutions">Solutions Accepted</th>
+        <th>Total Points</th>
+      </tr>
+    </thead>
+    <!-- BODY -->
+    <tbody class="AllUsers"></tbody>
+  </table>
+</div>
+
+<script>
+  //index.js
+  let userData;
+  const input = document.getElementsByName('search');
+
+  let solutions = [];
+  let metrics = [];
+  let winners = [];
+
+  let postPoint = 1;
+  let likePoint = 2;
+  let solutionPoint = 3;
+
+  let baseURL = 'https://discuss.layer5.io/';
+  let config = {
+    headers: {
+      'Api-Key':
+        '0deda792d73d76ec3d59b2e7d7adbfeadff0e78d3ba625afb1f828921de51c6e',
+      'Api-Username': 'Lee',
+    },
+  };
+
+  //get data from json file
+  const getData = async () => {
+    return JSON.parse(localStorage.getItem('userData'));
+    // await fetch('data.json', config)
+    //   .then((res) => {
+    //     console.log('loading data.json');
+    //     console.log(res);
+    //     return res.json();
+    //   })
+    //   .then((data) => {
+    //     userData = data;
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+  };
+
+  const getMetrics = async () => {
+    userData = await getData();
+    console.log(userData);
+    try {
+      for (let i = 0; i < userData.length; i++) {
+        let user = userData[i].user.username;
+        let likes = userData[i].likes_received * likePoint;
+        let posts = userData[i].post_count * postPoint;
+        let acceptedAnswers = userData[i].solutions * solutionPoint;
+        let profileUrl = baseURL + 'u/' + user + '/summary';
+        let imgSrc =
+          baseURL + userData[i].user.avatar_template.replace('{size}', '50');
+        let totalPoints = likes + posts + acceptedAnswers;
+
+        let userObject = {
+          user: user,
+          likes: likes,
+          posts: posts,
+          solutions: acceptedAnswers,
+          profileUrl: profileUrl,
+          imgSrc: imgSrc,
+          totalPoints: totalPoints,
+        };
+        //push generated object in metrics array
+        metrics[i] = userObject;
+      }
+
+      //sort metrics in descending order
+      metrics.sort((a, b) => {
+        return b.totalPoints - a.totalPoints;
+      });
+
+      //push top 5 users in winners array
+      winners = metrics.slice(0, 5);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const renderWinners = async () => {
+    await getMetrics();
+    let html = '';
+
+    winners.forEach((winner, index) => {
+      let htmlSegment = `
+      <tr class="table-row">
+      <!-- Rank -->
+                       <td class="rank">
+                       <div class="rank-container">
+
+                       <!-- medal -->
+                       <div class="medal">
+                           <img src='' alt="gold medal">
+                           </div>
+
+                           <!-- number -->
+                           <div class="rank-number">
+                               <p>${index + 1}</p>
+                           </div>
+                       </div>
+                    </td>
+                        <!-- Username -->
+                        <td>
+                            <div class="username-container">
+
+                              <a href=${winner.profileUrl}>
+                              <div class="image-container">
+                              <img src=${winner.imgSrc} alt="user image">
+                              </div>
+                              </a>
+
+                                  <div class="username">
+                                  <a href=${winner.profileUrl}>
+                                      <p class="user">${winner.user}</p>
+                                      </a>
+                                      </div>
+                            </div>
+
+                        </td>
+
+                        <!-- Likes received -->
+                        <td>${winner.likes}</td>
+
+                        <!-- Posts -->
+                        <td>${winner.posts}</td>
+
+                        <!-- Answered Questions -->
+                        <td>${winner.solutions}</td>
+
+                        <!-- Total Points -->
+                        <td>${winner.totalPoints}</td>
+                    </tr>
+                        `;
+      html += htmlSegment;
+    });
+
+    let container = document.querySelector('.winners');
+    container.innerHTML = html;
+  };
+  renderWinners();
+
+  const renderAllUsers = async (result) => {
+    await getMetrics();
+    let html = '';
+    let Allmetrics = result;
+
+    if (Allmetrics.length === 0) {
+      htmlSegment = `<div class='notFound'><p > result not found<p></div>`;
+      html += htmlSegment;
+    } else {
+      Allmetrics.forEach((metric, index) => {
+        let htmlSegment = `
+                        <tr class="table-row">
+                       <!-- Rank -->
+                        <td class="rank">
+                            <div class="rank-container">
+
+                                <!-- medal -->
+                                <div class="medal">
+                                <img src='' alt="gold medal">
+                                </div>
+
+                                <!-- number -->
+                                <div class="rank-number">
+                                    <p>${index + 1}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <!-- Username -->
+                        <td>
+                            <div class="username-container">
+
+                              <a href=${metric.profileUrl}>
+                              <div class="image-container">
+                              <img src=${metric.imgSrc} alt="user image">
+                              </div>
+                              </a>
+
+                                  <div class="username">
+                                  <a href=${metric.profileUrl}>
+                                      <p>${metric.user}</p>
+                                      </a>
+                                  </div>
+                            </div>
+
+                        </td>
+
+                        <!-- Likes received -->
+                        <td>${metric.likes}</td>
+
+                        <!-- Posts -->
+                        <td>${metric.posts}</td>
+
+                        <!-- Topics Created -->
+                        <td>${metric.solutions}</td>
+
+                        <!-- Total Points -->
+                        <td>${metric.totalPoints}</td>
+                    </tr>
+                    `;
+        html += htmlSegment;
+      });
+    }
+    let container = document.querySelector('.AllUsers');
+    container.innerHTML = html;
+  };
+
+  const getFiltered = async () => {
+    await getMetrics();
+    let query = input[0].value;
+    let result;
+
+    if (query) {
+      result = metrics.filter((metric) =>
+        metric.user.toLowerCase().includes(query.toLowerCase())
+      );
+    } else {
+      result = metrics;
+    }
+    renderAllUsers(result);
+  };
+  getFiltered();
+
+  input[0].addEventListener('keyup', getFiltered);
+</script>
+
+<script>
+  //data.js
+  //const axios = require('axios').default;
+  //const fs = require('fs');
+  //require('dotenv').config();
+
+  let url = 'https://discuss.layer5.io/directory_items.json?period=all';
+
+  async function saveUserData() {
+    //let response = await fetch(url);
+    //userData = dataJSON.stringify(response.data.directory_items);
+    userData = [
+      {
+        id: 3,
+        likes_received: 97,
+        likes_given: 81,
+        topic_count: 3,
+        post_count: 94,
+        topics_entered: 166,
+        posts_read: 348,
+        days_visited: 224,
+        solutions: 12,
+        time_read: 22157,
+        user: {
+          id: 3,
+          username: 'Lee',
+          name: 'Lee Calcote',
+          avatar_template: '/user_avatar/discuss.layer5.io/lee/{size}/7_2.png',
+          title: '',
+          flair_name: null,
+          admin: true,
+          moderator: true,
+          trust_level: 2,
+        },
+      },
+      {
+        id: 11,
+        likes_received: 52,
+        likes_given: 41,
+        topic_count: 18,
+        post_count: 4,
+        topics_entered: 52,
+        posts_read: 89,
+        days_visited: 65,
+        solutions: 0,
+        time_read: 7429,
+        user: {
+          id: 11,
+          username: 'Anita-ihuman',
+          name: 'Anita-ihuman',
+          avatar_template:
+            '/user_avatar/discuss.layer5.io/anita-ihuman/{size}/28_2.png',
+          title: null,
+          flair_name: null,
+          moderator: true,
+          trust_level: 2,
+        },
+      },
+      {
+        id: 47,
+        likes_received: 29,
+        likes_given: 7,
+        topic_count: 8,
+        post_count: 7,
+        topics_entered: 27,
+        posts_read: 39,
+        days_visited: 28,
+        solutions: 0,
+        time_read: 3233,
+        user: {
+          id: 47,
+          username: 'Iambami',
+          name: 'Oluwabamike Atinuke Kayode',
+          avatar_template:
+            '/user_avatar/discuss.layer5.io/iambami/{size}/178_2.png',
+          title: null,
+          flair_name: null,
+          moderator: true,
+          trust_level: 1,
+        },
+      },
+    ];
+
+    localStorage.setItem('userData', JSON.stringify(userData));
+
+    //   // fs.writeFile('./data.json', userData, 'utf8', function (err) {
+    //   //   if (err) {
+    //   //     console.log('An error occured while writing JSON Object to File.');
+    //   //     return console.log(err);
+    //   //   }
+    //   //   console.log('JSON file has been saved.');
+    //   // });
+  }
+  saveUserData();
+
+  function resetAtMidnight() {
+    let now = new Date();
+    let night = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate() + 1, // the next day
+      0,
+      0,
+      0 // at 00:00:00 hours
+    );
+
+    let midnight = night.getTime() - now.getTime();
+    console.log(midnight);
+
+    setInterval(async function () {
+      await saveUserData(); // This function is called at midnight.
+      resetAtMidnight(); // Then, reset again next midnight.
+    }, midnight);
+  }
+
+  resetAtMidnight();
+</script>

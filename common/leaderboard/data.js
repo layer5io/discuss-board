@@ -1,21 +1,23 @@
-const axios = require("axios").default;
-const fs = require("fs");
-require("dotenv").config();
+const axios = require('axios').default;
+const fs = require('fs');
+require('dotenv').config();
 
-let url = "https://discuss.layer5.io/directory_items.json?period=all";
+let url = 'https://discuss.layer5.io/directory_items.json?period=all';
+
+alert('data.js is loaded');
 
 async function saveUserData() {
   let response = await axios.get(url);
   userData = JSON.stringify(response.data.directory_items);
   // console.log(userData);
 
-  fs.writeFile("./data.json", userData, "utf8", function (err) {
+  fs.writeFile('./data.json', userData, 'utf8', function (err) {
     if (err) {
-      console.log("An error occured while writing JSON Object to File.");
+      console.log('An error occured while writing JSON Object to File.');
       return console.log(err);
     }
 
-    console.log("JSON file has been saved.");
+    console.log('JSON file has been saved.');
   });
 }
 saveUserData();

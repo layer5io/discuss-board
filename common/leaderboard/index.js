@@ -1,5 +1,5 @@
 let userData;
-const input = document.getElementsByName("search");
+const input = document.getElementsByName('search');
 
 let solutions = [];
 let metrics = [];
@@ -9,18 +9,20 @@ let postPoint = 1;
 let likePoint = 2;
 let solutionPoint = 3;
 
-let baseURL = "https://discuss.layer5.io/";
+let baseURL = 'https://discuss.layer5.io/';
 let config = {
   headers: {
-    "Api-Key":
-      "0deda792d73d76ec3d59b2e7d7adbfeadff0e78d3ba625afb1f828921de51c6e",
-    "Api-Username": "Lee",
+    'Api-Key':
+      '0deda792d73d76ec3d59b2e7d7adbfeadff0e78d3ba625afb1f828921de51c6e',
+    'Api-Username': 'Lee',
   },
 };
 
+alert('indexjs is loaded');
+
 //get data from json file
 const getData = async () => {
-  await fetch("./data.json", config)
+  await fetch('./data.json', config)
     .then((res) => {
       return res.json();
     })
@@ -40,9 +42,9 @@ const getMetrics = async () => {
       let likes = userData[i].likes_received * likePoint;
       let posts = userData[i].post_count * postPoint;
       let acceptedAnswers = userData[i].solutions * solutionPoint;
-      let profileUrl = baseURL + "u/" + user + "/summary";
+      let profileUrl = baseURL + 'u/' + user + '/summary';
       let imgSrc =
-        baseURL + userData[i].user.avatar_template.replace("{size}", "50");
+        baseURL + userData[i].user.avatar_template.replace('{size}', '50');
       let totalPoints = likes + posts + acceptedAnswers;
 
       let userObject = {
@@ -72,7 +74,7 @@ const getMetrics = async () => {
 
 const renderWinners = async () => {
   await getMetrics();
-  let html = "";
+  let html = '';
 
   winners.forEach((winner, index) => {
     let htmlSegment = `
@@ -127,14 +129,14 @@ const renderWinners = async () => {
     html += htmlSegment;
   });
 
-  let container = document.querySelector(".winners");
+  let container = document.querySelector('.winners');
   container.innerHTML = html;
 };
 renderWinners();
 
 const renderAllUsers = async (result) => {
   await getMetrics();
-  let html = "";
+  let html = '';
   let Allmetrics = result;
 
   if (Allmetrics.length === 0) {
@@ -194,7 +196,7 @@ const renderAllUsers = async (result) => {
       html += htmlSegment;
     });
   }
-  let container = document.querySelector(".AllUsers");
+  let container = document.querySelector('.AllUsers');
   container.innerHTML = html;
 };
 
@@ -214,4 +216,4 @@ const getFiltered = async () => {
 };
 getFiltered();
 
-input[0].addEventListener("keyup", getFiltered);
+input[0].addEventListener('keyup', getFiltered);
