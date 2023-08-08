@@ -12,7 +12,7 @@ export const useFetchLeaderBoard = () => {
   const fetchLeaderBoard = async () => {
     try {
       const response = await axios.get(
-        `directory_items.json/?order=likes_received&period=weekly`
+        `directory_items.json/?order=likes_received&period=monthly`
       );
       return response?.data;
     } catch (error) {
