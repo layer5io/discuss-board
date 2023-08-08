@@ -1,0 +1,98 @@
+import { LeaderBoardData } from '../types';
+
+export const membershipTableData = [
+  {
+    membership_id: '324255ER',
+    fullname: 'Dongo Kouassi Ibraim',
+    sex: 'M',
+    location: 'abuja',
+    organisation: 'organisation',
+    registration_date: '24/02/2022',
+  },
+  {
+    membership_id: '324565ER',
+    fullname: 'Echendu Chinedum',
+    sex: 'M',
+    location: 'enugu',
+    organisation: 'organisation',
+    registration_date: '24/02/2022',
+  },
+  {
+    membership_id: '3242355PY',
+    fullname: 'Nathan Chinedu Okolo',
+    sex: 'M',
+    location: 'lagos',
+    organisation: 'organisation',
+    registration_date: '24/02/2022',
+  },
+];
+
+export const leaderB: LeaderBoardData[] = [
+  {
+    id: 3,
+    likes_received: 198,
+    likes_given: 205,
+    topic_count: 16,
+    post_count: 292,
+    topics_entered: 398,
+    posts_read: 999,
+    days_visited: 477,
+    solutions: 37,
+    time_read: 39263,
+    user: {
+      id: 3,
+      username: 'Lee',
+      name: 'Lee Calcote',
+      avatar_template: '/user_avatar/discuss.layer5.io/lee/{size}/7_2.png',
+      title: '',
+      admin: true,
+      moderator: true,
+      trust_level: 3,
+    },
+  },
+  {
+    id: 11,
+    likes_received: 52,
+    likes_given: 42,
+    topic_count: 18,
+    post_count: 7,
+    topics_entered: 63,
+    posts_read: 113,
+    days_visited: 86,
+    solutions: 0,
+    time_read: 7809,
+    user: {
+      id: 11,
+      username: 'Anita-ihuman',
+      name: 'Anita-ihuman',
+      avatar_template:
+        '/user_avatar/discuss.layer5.io/anita-ihuman/{size}/28_2.png',
+      title: null,
+      moderator: true,
+      trust_level: 2,
+    },
+  },
+  {
+    id: 975,
+    likes_received: 38,
+    likes_given: 39,
+    topic_count: 3,
+    post_count: 55,
+    topics_entered: 176,
+    posts_read: 638,
+    days_visited: 90,
+    solutions: 3,
+    time_read: 22393,
+    user: {
+      id: 975,
+      username: 'vishalvivekm',
+      name: 'Vivek Vishal',
+      avatar_template:
+        '/user_avatar/discuss.layer5.io/vishalvivekm/{size}/1038_2.png',
+      title: null,
+      admin: true,
+      moderator: true,
+      trust_level: 2,
+    },
+  },
+];
