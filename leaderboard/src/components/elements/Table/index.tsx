@@ -112,7 +112,7 @@ function Table({
                         <th
                           key={header.id}
                           colSpan={header.colSpan}
-                          className="text-left text-xs text-white font-semibold uppercase whitespace-nowrap py-5 px-5"
+                          className="text-left text-xs text-white font-semibold uppercase whitespace-nowrap py-5 px-5 text-center"
                         >
                           {header.isPlaceholder ? null : (
                             <div>
