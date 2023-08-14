@@ -98,7 +98,7 @@ function Table({
       </div>
 
       <article className="flex flex-col border border-[#E6E6E6] rounded-xl">
-        <div className="overflow-x-auto sm:-mx-6 lg:-mx-8 ">
+        <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
             <table className="min-w-full bg-white sm:px-6 lg:px-8 h-auto overflow-y-scroll relative">
               <thead className="bg-[#F3F4F6]">
@@ -112,7 +112,7 @@ function Table({
                         <th
                           key={header.id}
                           colSpan={header.colSpan}
-                          className="text-left text-xs text-white font-semibold uppercase whitespace-nowrap py-5 px-5"
+                          className="text-left text-xs text-white font-semibold uppercase whitespace-nowrap py-5 px-5 text-center"
                         >
                           {header.isPlaceholder ? null : (
                             <div>
@@ -144,10 +144,12 @@ function Table({
                               key={cell.id}
                               className="text-sm font-normal capitalize whitespace-nowrap py-[14px] px-5"
                             >
+                              <div className="flex justify-center items-center">
                               {flexRender(
                                 cell?.column.columnDef.cell,
                                 cell?.getContext()
                               )}
+                              </div>
                             </td>
                           );
                         })}

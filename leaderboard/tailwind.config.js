@@ -3,6 +3,12 @@ module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        'heading': ['"Qanelas Soft"', 'sans-serif'],
+      },
+      fontSize: {
+        '50': '50px',
+      },
       colors: {
         'primary-100': '#E6FBF7',
         tertiary: '#FBB402',
@@ -29,7 +35,7 @@ module.exports = {
           primary: '#227645',
           secondary: '#82C600',
           accent: '#F5F9FA',
-          dark: '#000000',
+          dark: '#3c494f',
           info: '#D0F4DD',
           success: '#12B76A',
           warning: '#FBB402',

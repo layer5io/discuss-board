@@ -4,17 +4,17 @@ import Paragraph from '@components/elements/Text/Paragraph';
 const Header = () => {
   return (
     <Section className="bg-primary h-[250px] flex items-center justify-center text-white flex-col relative">
-      <Section className="absolute  top-0 left-0 p-2">
-        <a href="https://discuss.layer5.io" target="_blank" rel="noreferrer">
+      <h1 className= "text-50 font-bold p-2 font-heading">
+        Hello. 👋
+      </h1>
+      <Paragraph className="text-2xl">
+          Welcome to Layer 5 leaderboard.
+      </Paragraph>
+      <Section className="absolute top-0 right-0 p-2">
+      <a className="p-1 hover:bg-dark" href="https://discuss.layer5.io" target="_blank" rel="noreferrer">
           Discussion Forum
-        </a>
+      </a>
       </Section>
-      <Paragraph className="text-4xl font-bold">
-        Hello 👋, Welcome to Layer 5 leaderboard
-      </Paragraph>
-      <Paragraph className="my-4">
-        {'Welcome to the service mesh community’s discussion forum.'}
-      </Paragraph>
     </Section>
   );
 };
