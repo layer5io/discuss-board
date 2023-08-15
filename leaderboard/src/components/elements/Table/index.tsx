@@ -2,6 +2,7 @@ import React, { ReactNode, useState } from 'react';
 
 import {
   useReactTable,
+  SortingState,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
@@ -53,12 +54,15 @@ function Table({
   noData?: string;
 }) {
   const [globalFilter, setGlobalFilter] = useState<string>('');
+  const [sorting, setSorting] = useState<SortingState>([])
   const table = useReactTable({
     data,
     columns,
     state: {
       globalFilter,
+      sorting,
     },
+    onSortingChange: setSorting,
     onGlobalFilterChange: setGlobalFilter,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
@@ -115,11 +119,20 @@ function Table({
                           className="text-left text-xs text-white font-semibold uppercase whitespace-nowrap py-5 px-5 text-center"
                         >
                           {header.isPlaceholder ? null : (
-                            <div>
+                            <div {...{
+                              className: header.column.getCanSort()
+                                ? 'cursor-pointer select-none'
+                                : '',
+                              onClick: header.column.getToggleSortingHandler(),
+                            }}>
                               {flexRender(
                                 header.column.columnDef.header,
                                 header.getContext()
                               )}
+                              {{
+                                asc: ' 🔼',
+                                desc: ' 🔽',
+                              }[header.column.getIsSorted() as string] ?? null}
                             </div>
                           )}
                         </th>
