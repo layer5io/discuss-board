@@ -40,7 +40,7 @@ export const useFetchLeaderBoard = () => {
         },
       },
       {
-        header: 'Membe🐇 ',
+        header: 'Member',
         accessorKey: 'avatar',
         accessorFn: (row: any) => row?.user?.name,
         cell: (info) => {
