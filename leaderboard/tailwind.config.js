@@ -4,10 +4,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'heading': ['"Qanelas Soft"', 'sans-serif'],
+        heading: ['"Qanelas Soft"', 'sans-serif'],
       },
       fontSize: {
-        '50': '50px',
+        50: '50px',
       },
       colors: {
         'primary-100': '#E6FBF7',
@@ -17,10 +17,10 @@ module.exports = {
         light: '#f4f4f4',
         primary: '#00B39F',
         white: '#ffffff',
-        info: '#E3FEFF',
-        success: '#006644',
-        error: '#b92500',
-        warn: '#ff8b00',
+        'light-grey': {
+          main: '#E6E6E6',
+          100: '[#F3F4F6]',
+        },
         neutral: '#404040',
         'neutral-copy-black': '#404040',
         'neutral-accorion': '#F9F9FB',

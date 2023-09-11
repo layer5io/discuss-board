@@ -34,7 +34,7 @@ const Pagination = ({
           setFirst(first - sliceDigit);
           setLast(last - sliceDigit);
         }}
-        className="bg-[#F3F4F6] w-10 h-10 flex items-center justify-center rounded-l-lg border"
+        className="bg-light-grey-100 w-10 h-10 flex items-center justify-center rounded-l-lg border"
         disabled={first === 0}
       >
         <CaretLeft width={14} height={14} fill="#227645" />
@@ -72,7 +72,7 @@ const Pagination = ({
           setFirst(first + sliceDigit);
           setLast(last + sliceDigit);
         }}
-        className="bg-[#F3F4F6] mx-1 w-10 h-10 flex items-center justify-center rounded-r-lg border"
+        className="bg-light-grey-100 mx-1 w-10 h-10 flex items-center justify-center rounded-r-lg border"
         disabled={last >= total}
       >
         <CaretRight width={14} height={14} fill="#227645" />

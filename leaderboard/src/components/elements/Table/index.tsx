@@ -100,12 +100,11 @@ function Table({
           leftIcon={<Image src={search} alt={'Search'} />}
         />
       </div>
-
-      <article className="flex flex-col border border-[#E6E6E6]">
+      <article className="flex flex-col border border-light-grey">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className=" inline-block min-w-full sm:px-6 lg:px-8">
             <table className="min-w-full bg-white sm:px-6 lg:px-8 h-auto overflow-y-scroll relative">
-              <thead className="bg-[#F3F4F6]">
+              <thead className="bg-light-grey-100">
                 {table?.getHeaderGroups().map((headerGroup) => (
                   <tr
                     key={headerGroup.id}
