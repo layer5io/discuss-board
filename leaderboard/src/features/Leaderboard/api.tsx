@@ -4,7 +4,7 @@ import Image from '@components/elements/Image';
 import { useQuery } from '@tanstack/react-query';
 import { ColumnDef } from '@tanstack/react-table';
 import { totalPoints } from '@utils/helpers';
-import { axios } from 'lib';
+import { BASE_URL, axios } from 'lib';
 import React from 'react';
 import { toast } from 'react-toastify';
 
@@ -40,14 +40,39 @@ export const useFetchLeaderBoard = () => {
         },
       },
       {
-        header: 'Member',
-        accessorKey: 'user',
+        header: 'User',
+        accessorKey: 'avatar',
         accessorFn: (row: any) => row?.user?.name,
         cell: (info) => {
           const { user } = info?.row?.original;
-          return <span>{user?.name}</span>;
+          const avatarUrl = user.avatar_template
+            .replace('{size}', '50') // Replace with your desired size
+            .replace('{username}', user.username); // Replace with the actual username
+          return (
+            <div className="flex items-center">
+              <div className="w-12 h-12">
+                <img
+                  src={`https://discuss.layer5.io/${avatarUrl}`}
+                  alt={user?.name}
+                  className="w-full h-full rounded-full"
+                />
+              </div>
+              <div className="ml-4 flex-1">
+                <p className="flex-1">{user?.name}</p>
+              </div>
+            </div>
+          );
         },
       },
+      // {
+      //   header: 'Member',
+      //   accessorKey: 'user',
+      //   accessorFn: (row: any) => row?.user?.name,
+      //   cell: (info) => {
+      //     const { user } = info?.row?.original;
+      //     return <span>{user?.name}</span>;
+      //   },
+      // },
       {
         header: 'Likes',
         accessorKey: 'likes_received',
