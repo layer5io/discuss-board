@@ -4,7 +4,7 @@ import Image from '@components/elements/Image';
 import { useQuery } from '@tanstack/react-query';
 import { ColumnDef } from '@tanstack/react-table';
 import { totalPoints } from '@utils/helpers';
-import { BASE_URL, axios } from 'lib';
+import { axios } from 'lib';
 import React from 'react';
 import { toast } from 'react-toastify';
 
@@ -46,8 +46,8 @@ export const useFetchLeaderBoard = () => {
         cell: (info) => {
           const { user } = info?.row?.original;
           const avatarUrl = user.avatar_template
-            .replace('{size}', '50') // Replace with your desired size
-            .replace('{username}', user.username); // Replace with the actual username
+            .replace('{size}', '50')
+            .replace('{username}', user.username);
           return (
             <div className="flex items-center">
               <div className="w-12 h-12">
@@ -64,15 +64,6 @@ export const useFetchLeaderBoard = () => {
           );
         },
       },
-      // {
-      //   header: 'Member',
-      //   accessorKey: 'user',
-      //   accessorFn: (row: any) => row?.user?.name,
-      //   cell: (info) => {
-      //     const { user } = info?.row?.original;
-      //     return <span>{user?.name}</span>;
-      //   },
-      // },
       {
         header: 'Likes',
         accessorKey: 'likes_received',
@@ -117,6 +108,5 @@ export const useFetchLeaderBoard = () => {
           : 'Something went wrong fetching status list'
       ),
   });
-
   return { leaderBoard, loadingLeaderBoard, leadColumns };
 };

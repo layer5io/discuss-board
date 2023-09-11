@@ -91,19 +91,19 @@ function Table({
   };
   return (
     <section>
-      <div className="flex items-center mt-4">
+      <div className="flex items-center mt-4 mx-4">
         <TextField
           value={globalFilter ?? ''}
           onChange={(event) => setGlobalFilter(event.target.value)}
-          className="p-2 font-lg shadow border border-block"
+          className="p-2 font-lg border border-block"
           placeholder="Search Member"
           leftIcon={<Image src={search} alt={'Search'} />}
         />
       </div>
 
-      <article className="flex flex-col border border-[#E6E6E6] rounded-xl">
+      <article className="flex flex-col border border-[#E6E6E6]">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+          <div className=" inline-block min-w-full sm:px-6 lg:px-8">
             <table className="min-w-full bg-white sm:px-6 lg:px-8 h-auto overflow-y-scroll relative">
               <thead className="bg-[#F3F4F6]">
                 {table?.getHeaderGroups().map((headerGroup) => (
