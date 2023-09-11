@@ -54,7 +54,7 @@ function Table({
   noData?: string;
 }) {
   const [globalFilter, setGlobalFilter] = useState<string>('');
-  const [sorting, setSorting] = useState<SortingState>([])
+  const [sorting, setSorting] = useState<SortingState>([]);
   const table = useReactTable({
     data,
     columns,
@@ -116,15 +116,18 @@ function Table({
                         <th
                           key={header.id}
                           colSpan={header.colSpan}
-                          className="text-left text-xs text-white font-semibold uppercase whitespace-nowrap py-5 px-5 text-center"
+                          className="text-left text-xs text-white font-semibold uppercase whitespace-nowrap py-5 px-5"
                         >
                           {header.isPlaceholder ? null : (
-                            <div {...{
-                              className: header.column.getCanSort()
-                                ? 'cursor-pointer select-none'
-                                : '',
-                              onClick: header.column.getToggleSortingHandler(),
-                            }}>
+                            <div
+                              {...{
+                                className: header.column.getCanSort()
+                                  ? 'cursor-pointer select-none'
+                                  : '',
+                                onClick:
+                                  header.column.getToggleSortingHandler(),
+                              }}
+                            >
                               {flexRender(
                                 header.column.columnDef.header,
                                 header.getContext()
@@ -157,11 +160,11 @@ function Table({
                               key={cell.id}
                               className="text-sm font-normal capitalize whitespace-nowrap py-[14px] px-5"
                             >
-                              <div className="flex justify-center items-center">
-                              {flexRender(
-                                cell?.column.columnDef.cell,
-                                cell?.getContext()
-                              )}
+                              <div className="flex items-center">
+                                {flexRender(
+                                  cell?.column.columnDef.cell,
+                                  cell?.getContext()
+                                )}
                               </div>
                             </td>
                           );
