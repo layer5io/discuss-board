@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, SetStateAction, useState } from 'react';
 
 import {
   useReactTable,
@@ -17,12 +17,15 @@ import Paragraph from '../Text/Paragraph';
 import TextField from '../TextField';
 import { search } from '@assets/icons';
 import Image from '../Image';
+import SelectDropdown from '../Select';
 
 interface TableProps {
   data: any;
   columns: any;
   loading: boolean;
   noData?: string;
+  option?: string;
+  setOption?: React.Dispatch<SetStateAction<string>>;
 }
 
 interface PaginationButtonProps {
@@ -38,8 +41,18 @@ const TableComponent: React.FC<TableProps> = ({
   columns,
   loading,
   noData,
+  setOption,
+  option,
 }) => {
-  return <Table {...{ data, columns }} loading={loading} noData={noData} />;
+  return (
+    <Table
+      {...{ data, columns }}
+      loading={loading}
+      noData={noData}
+      setOption={setOption}
+      option={option}
+    />
+  );
 };
 
 function Table({
@@ -47,14 +60,23 @@ function Table({
   columns,
   loading,
   noData,
+  setOption,
+  option,
 }: {
   data: LeaderBoardData[];
   columns: ColumnDef<LeaderBoardData>[];
   loading: boolean;
   noData?: string;
+  option?: string;
+  setOption?: React.Dispatch<SetStateAction<string>>;
 }) {
   const [globalFilter, setGlobalFilter] = useState<string>('');
   const [sorting, setSorting] = useState<SortingState>([]);
+  const options: { label: string; value: string }[] = [
+    { label: 'Monthly', value: 'monthly' },
+    { label: 'Daily', value: 'daily' },
+  ];
+
   const table = useReactTable({
     data,
     columns,
@@ -81,7 +103,7 @@ function Table({
       <button
         className={`${className} border rounded p-1 text-xs ${
           disabled ? 'bg-primary-100 opacity-60' : 'bg-primary text-white'
-        } `}
+        }`}
         disabled={disabled || loading}
         onClick={onClick}
       >
@@ -91,14 +113,26 @@ function Table({
   };
   return (
     <section>
-      <div className="flex items-center mt-4 mx-4">
-        <TextField
-          value={globalFilter ?? ''}
-          onChange={(event) => setGlobalFilter(event.target.value)}
-          className="p-2 font-lg border border-block"
-          placeholder="Search Member"
-          leftIcon={<Image src={search} alt={'Search'} />}
-        />
+      <div className="grid grid-cols-2 justify-between mt-4 mx-4">
+        <div>
+          <TextField
+            value={globalFilter ?? ''}
+            onChange={(event) => setGlobalFilter(event.target.value)}
+            className="p-2 font-lg border border-block"
+            placeholder="Search Member"
+            leftIcon={<Image src={search} alt={'Search'} />}
+          />
+        </div>
+        <div className="ml-4">
+          <SelectDropdown
+            options={options}
+            defaultValue={option}
+            placeholder='Toggle By'
+            onChange={({ value }: { value: string }) => {
+              setOption!(value);
+            }}
+          />
+        </div>
       </div>
       <article className="flex flex-col border border-light-grey">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">

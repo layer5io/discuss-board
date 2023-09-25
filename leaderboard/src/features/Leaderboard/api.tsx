@@ -5,14 +5,16 @@ import { useQuery } from '@tanstack/react-query';
 import { ColumnDef } from '@tanstack/react-table';
 import { totalPoints } from '@utils/helpers';
 import { axios } from 'lib';
-import React from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 export const useFetchLeaderBoard = () => {
-  const fetchLeaderBoard = async () => {
+  const fetchLeaderBoard = async (period: string) => {
     try {
       const response = await axios.get(
-        `directory_items.json/?order=likes_received&period=monthly`
+        `directory_items.json/?order=likes_received&period=${
+          period || 'monthly'
+        }`
       );
       return response?.data;
     } catch (error) {
@@ -20,6 +22,7 @@ export const useFetchLeaderBoard = () => {
     }
   };
 
+  const [period, setPeriod] = useState<string>('monthly');
   const leadColumns = React.useMemo<ColumnDef<LeaderBoardData>[]>(
     () => [
       {
@@ -99,8 +102,8 @@ export const useFetchLeaderBoard = () => {
   );
 
   const { data: leaderBoard, isFetching: loadingLeaderBoard } = useQuery({
-    queryKey: ['leader-board'],
-    queryFn: fetchLeaderBoard,
+    queryKey: ['leader-board', period],
+    queryFn: () => fetchLeaderBoard(period),
     onError: (err) =>
       toast.error(
         typeof err === 'string'
@@ -108,5 +111,5 @@ export const useFetchLeaderBoard = () => {
           : 'Something went wrong fetching status list'
       ),
   });
-  return { leaderBoard, loadingLeaderBoard, leadColumns };
+  return { leaderBoard, loadingLeaderBoard, leadColumns, period, setPeriod };
 };

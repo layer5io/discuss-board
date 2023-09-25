@@ -12,9 +12,10 @@ export interface SelectDropdownTypes {
   textTransform?: string;
   loading?: boolean;
   name?: string;
-  label: string;
+  label?: string;
   error?: boolean;
   errorMessage?: string;
+  placeholder?: string;
 }
 
 const SelectDropdown = React.forwardRef(function SelectDropdown(
@@ -31,6 +32,7 @@ const SelectDropdown = React.forwardRef(function SelectDropdown(
     label,
     error,
     errorMessage,
+    placeholder,
     ...rest
   }: SelectDropdownTypes,
   ref
@@ -82,9 +84,12 @@ const SelectDropdown = React.forwardRef(function SelectDropdown(
 
   return (
     <div>
-      <div className="mb-4">
-        <FormLabel htmlFor={name} title={label} />
-      </div>
+      {label && (
+        <div className="mb-4">
+          <FormLabel htmlFor={name} title={label} />
+        </div>
+      )}
+
       {multiSelect ? (
         <Select
           isMulti
@@ -150,7 +155,7 @@ const SelectDropdown = React.forwardRef(function SelectDropdown(
           options={options}
           name={name}
           isLoading={loading}
-          placeholder="Select an Item"
+          placeholder={placeholder || 'Select an Item'}
           {...rest}
         />
       )}

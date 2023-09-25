@@ -5,7 +5,7 @@ import Header from './components/Header';
 import React from 'react';
 
 const HomeModule = () => {
-  const { leaderBoard, leadColumns, loadingLeaderBoard } =
+  const { leaderBoard, leadColumns, loadingLeaderBoard, period, setPeriod } =
     useFetchLeaderBoard();
 
   const _leaderboard = React.useMemo(
@@ -15,6 +15,7 @@ const HomeModule = () => {
         : [],
     [leaderBoard]
   );
+
   return (
     <Section>
       <Header />
@@ -22,6 +23,8 @@ const HomeModule = () => {
         data={_leaderboard}
         columns={leadColumns}
         loading={loadingLeaderBoard}
+        option={period}
+        setOption={setPeriod}
       />
     </Section>
   );
