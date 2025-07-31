@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@assets/*": ["assets/*"],
+      "@widget/*": ["components/widget/*"],
+      "@constants/*": ["constants/*"],
+      "@config/*": ["config/*"],
+      "@pages/*": ["pages/*"],
+      "@store/*": ["store/*"],
+      "@hooks/*": ["hooks/*"],
+      "@utils/*": ["utils/*"],
+      "@features/*": ["features/*"],
+      "@providers/*": ["providers/*"],
+      "@/types/*": ["types/*"]
+    }
+  },
+  "include": ["src", "tailwind.config.js", "postcss.config.js"]
+  // "typeRoots": ["../node_modules/@types", "../@types"]
+}
