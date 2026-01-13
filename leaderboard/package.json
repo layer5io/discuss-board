@@ -1,18 +1,58 @@
 {
-  "name": "discuss-board",
-  "version": "1.0.0",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node data.js"
-  },
-  "author": "oyin",
-  "license": "ISC",
+  "name": "layer5-leaderboard",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "axios": "^0.27.2",
-    "dotenv": "^16.0.1",
-    "node-fetch": "^3.2.4",
-    "nodemon": "^2.0.16"
+    "@craco/craco": "^7.1.0",
+    "@faker-js/faker": "^8.0.2",
+    "@tanstack/react-query": "^4.29.25",
+    "@tanstack/react-query-devtools": "^4.29.25",
+    "@tanstack/react-table": "^8.9.3",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.38",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "axios": "^1.4.0",
+    "daisyui": "^3.3.1",
+    "http-proxy-middleware": "^2.0.6",
+    "moment": "^2.29.4",
+    "postcss": "^8.4.26",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.2",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.7.4",
+    "react-toastify": "^9.1.3",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4",
+    "yup": "^1.2.0"
   },
-  "main": "index.js",
-  "description": ""
+  "scripts": {
+    "start": "craco start start",
+    "build": "craco build build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "https://discuss.layer5.io/"
 }

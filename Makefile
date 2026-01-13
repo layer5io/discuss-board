@@ -1,24 +1,15 @@
-check:
-	golangci-lint run
+LEADERBOARD_DIR := leaderboard
+PORT := 3000
 
-check-clean-cache:
-	golangci-lint cache clean
+# Commands
+install:
+	@echo "Installing dependencies..."
+	cd $(LEADERBOARD_DIR) && npm install
 
-protoc-setup:
-	wget -P meshes https://raw.githubusercontent.com/layer5io/meshery/master/meshes/meshops.proto
+start:
+	@echo "Starting the site on port $(PORT)..."
+	cd $(LEADERBOARD_DIR) && npm start
 
-proto:
-	protoc -I meshes/ meshes/meshops.proto --go_out=plugins=grpc:./meshes/
+run: install start
 
-
-
-
-
-site:
-	$(jekyll) serve --drafts --livereload
-
-build:
-	$(jekyll) build --drafts
-
-docker:
-	docker run --name site -d --rm -p 4000:4000 -v `pwd`:"/srv/jekyll" jekyll/jekyll:4.0.0 bash -c "bundle install; jekyll serve --drafts --livereload"
+.PHONY: install start run
