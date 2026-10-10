@@ -55,30 +55,21 @@ Please contribute! Layer5 documentation uses Jekyll and GitHub Pages to host doc
 
 1. Create a fork, if you have not already, by following the steps described [here](./CONTRIBUTING-gitflow.md)
 1. In the local copy of your fork, navigate to the docs folder.
-`cd docs`
+`cd leaderboard`
 1. Create and checkout a new branch to make changes within
 `git checkout -b <my-changes>`
 1. Edit/add documentation.
 `vi <specific page>.md`
 1. Run site locally to preview changes.
-`make site`
+`npm start`
 1. Commit, [sign-off](#commit-signing), and push changes to your remote branch.
-`git push origin <my-changes>`
+`git push <remote-name> <my-changes>`
 1. Open a pull request (in your web browser) against the repo.
 
 
-#### Tests
-Users can now test their code on their local machine against the CI checks implemented using `make run-tests`.
-
-To test code changes on your local machine, run the following command:
-```
-make run-tests
-```
-
-#### Building Docker image
-To build a Docker image of the project, please ensure you have `Docker` installed to be able to build the image. Now, run the following command to build the Docker image:
+### Build and Run Leaderboard Locally
 ```sh
-make docker
+make run
 ```
 
 ### UI Lint Rules

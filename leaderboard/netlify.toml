@@ -1,0 +1,9 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  
+[[redirects]]
+  from = "/directory_items.json/*"
+  to = "https://discuss.layer5.io/:splat"
+  status = 200
